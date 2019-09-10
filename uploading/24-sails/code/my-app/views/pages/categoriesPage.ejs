@@ -1,0 +1,25 @@
+<h2 class="display-4">All categories here:</h1>
+<table  class="table table-striped">
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>Category's name</th>
+			<th>Description</th>
+		</tr>
+	</thead>	
+	<tbody>
+		<%categories.forEach(category => {%>
+			<tr>
+				<td><%= category.id %></td>
+				<td><%= category.categoryName %></td>
+				<td><%= category.description %></td>				
+				<td>
+					<a href="/categories/edit/<%= category.id%>" class="btn btn-primary">Edit</a>
+					<form action="/categories/delete/<%= category.id%>" method="post">
+						<input type="submit" value="Delete" class="btn btn-danger">
+					</form>
+				</td>				
+			</tr>
+		<%})%>
+	</tbody>
+</table>
